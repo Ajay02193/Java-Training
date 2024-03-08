@@ -18,7 +18,7 @@ public class ATMSim {
     double bal=0;
 
     void ATMAvail(){
-        System.out.println("WELCOME TO ATM SIMULATOR");;
+        System.out.println("WELCOME TO ATM SIMULATOR");
         System.out.println("\n\nMenu:");
         System.out.println("1. Check Balance");
         System.out.println("2. Deposit Money");
@@ -42,7 +42,7 @@ public class ATMSim {
     }
 
     void CheckBalance(){
-        System.out.println("Available Balalnce: Rs."+bal);
+        System.out.println("Available Balance: Rs."+bal);
     }
 
     void Deposit(){
@@ -62,6 +62,8 @@ public class ATMSim {
         double wd=scn.nextDouble();
         if(wd<=0)
             System.out.println("Invalid Withdrawal Amount");
+        else if(wd>bal)
+            System.out.println("Insufficient Amount");
         else{
             bal-=wd;
             System.out.println("Withdrawal of Rs."+wd+" is successful");
