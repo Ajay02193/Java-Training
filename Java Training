@@ -1,0 +1,19 @@
+Day 1
+    -conditional Statements
+        -if-else
+        -switch
+    -loops
+        -while
+        -do-while
+        -for
+        -for each(Eg. loop2.java 
+        || for(int item:array))
+    -jump statements
+        -break
+            -labelled(Eg. search2d.java)
+            -non labelled(Eg. inputarr.java)
+        -continue(Skip)
+            -labelled
+            -non labelled(Eg. pat1.java)
+    -array basics
+    -return statements
