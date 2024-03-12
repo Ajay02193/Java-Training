@@ -1,8 +1,10 @@
 public class E1 {
-    void divide(){
+    void fun(){
         int a=10,b=0;
         try {
-            System.out.println(a / b);
+            System.out.println(b/a);
+            throw new RuntimeException();
+            //System.out.println(a / b);
         }catch(ArithmeticException e){
             System.out.println("e: "+e);
             System.out.println("e.getMessgae(): "+e.getMessage());
@@ -14,10 +16,7 @@ public class E1 {
         }
         System.out.println("Outside");
 
-    }
-
-//    void fun(){
 //        String s=null;
-//        System.out.println(s.length());
-//    }
+//        System.out.println(s.length());               //NullPointerException
+    }
 }
