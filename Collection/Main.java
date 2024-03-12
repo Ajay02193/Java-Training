@@ -1,5 +1,4 @@
-import CollectionDemo.List1;
-import CollectionDemo.Stack1;
+import CollectionDemo.*;
 
 public class Main {
 
@@ -9,5 +8,11 @@ public class Main {
 
         Stack1 s1 = new Stack1();
         s1.fun();
+
+        List2 l2=new List2();
+        l2.fun();
+
+        List3 l3=new List3();
+        l3.fun();
     }
 }
