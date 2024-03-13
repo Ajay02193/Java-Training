@@ -9,11 +9,8 @@ public class BookData {
     public static void main(String[] args) {
         ArrayList<Book> books=new ArrayList();
 
-        books.add(new Book(101,"Harry Potter","J.K.Rowling"));
-        books.add(new Book(102,"The Great Gatsby","F. Scott Fitzgerald"));
-        books.add(new Book(103,"The Hobbit","J.R.R. Tolkien"));
-        books.add(new Book(104,"The Grapes of Wrath","John Steinbeck"));
-        books.add(new Book(105,"Lord of the Flies","William Golding"));
+        books.add(new Book(101,"let us C","Yashvant P Kanetkar"));
+        books.add(new Book(102,"head first java","Kathy Sierra"));
 
         System.out.println("Book Details: ");
         for(Book book : books){

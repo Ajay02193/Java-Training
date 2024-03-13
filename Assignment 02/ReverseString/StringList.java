@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.List;
 
 public class StringList {
     void fun(){
@@ -10,8 +10,18 @@ public class StringList {
         list.add("cherry");
         list.add("date");
 
-        System.out.println("Original List: "+list);
-        Collections.reverse(list);
-        System.out.println("Reverse List: "+list);
+        System.out.println("Original list: "+list);
+        reversefun(list);
+        System.out.println("Reverse list: "+list);
+    }
+
+    void reversefun(List<String> list){
+        int l=0,r=list.size()-1;
+        while(l<r){
+            String temp=list.get(l);
+            list.set(l,list.get(r));
+            list.set(r,temp);
+            l++;r--;
+        }
     }
 }
