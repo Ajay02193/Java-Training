@@ -5,17 +5,17 @@ Create an ArrayList of type Book and store all book objects into collections and
 
 import java.util.ArrayList;
 
-public class BookData {
+public class Main {
     public static void main(String[] args) {
-        ArrayList<Book> books=new ArrayList();
-        Book b1 = new Book(101,"let us C","Yashvant P Kanetkar");
-        books.add(b1);
-        Book b2 = new Book(102,"head first java","Kathy Sierra");
-        books.add(b2);
+        ArrayList<Book2> books=new ArrayList();
+        Book2 b21 = new Book2(101,"let us C","Yashvant P Kanetkar");
+        books.add(b21);
+        Book2 b22=new Book2(102,"head first java","Kathy Sierra");
+        books.add(b22);
 
         System.out.println("Book Details: ");
-        for(Book book : books){
-            System.out.println(book);
+        for(Book2 book : books){
+            System.out.println("bookId: "+book.getbookId()+" | bookName: "+book.getBookName()+" | authorName: "+book.getAuthorName());
         }
     }
 }

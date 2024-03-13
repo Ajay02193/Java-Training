@@ -14,7 +14,6 @@ public class StringList {
         reversefun(list);
         System.out.println("Reverse list: "+list);
     }
-
     void reversefun(List<String> list){
         int l=0,r=list.size()-1;
         while(l<r){

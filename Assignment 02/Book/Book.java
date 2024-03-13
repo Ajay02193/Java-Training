@@ -8,15 +8,18 @@ public class Book {
         this.authorName = authorName;
     }
 
-    int getbookId(){
-        return bookId;
+    public String toString(){
+        return ("bookId: "+bookId+" | bookName: "+bookName+" | authorName: "+authorName);
     }
-
-    String getBookName(){
-        return bookName;
-    }
-
-    String getAuthorName(){
-        return authorName;
-    }
+//    int getbookId(){
+//        return bookId;
+//    }
+//
+//    String getBookName(){
+//        return bookName;
+//    }
+//
+//    String getAuthorName(){
+//        return authorName;
+//    }
 }
