@@ -14,5 +14,11 @@ public class Main {
 
         List3 l3=new List3();
         l3.fun();
+
+        Queue1 q1 =new Queue1();
+        q1.fun();
+
+        PriorityQueue1 pq1=new PriorityQueue1();
+        pq1.fun();
     }
 }

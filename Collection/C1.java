@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.*;
 
 public class C1 {
 
@@ -36,5 +35,45 @@ public class C1 {
         System.out.println("set1: "+set1);
         System.out.println("set2: "+set2);
         System.out.println("set3: "+set3);
+
+        LinkedHashSet<String> lhs =new LinkedHashSet<>();
+        lhs.add("B");
+        lhs.add("A");
+        lhs.add("D");
+        lhs.add("E");
+        lhs.add("B");
+        System.out.println("LinkedHashSet: "+lhs);
+
+        HashSet<String> hs=new HashSet<>();
+        hs.add("A");
+        hs.add("C");
+        hs.add("B");
+        hs.add("A");
+        System.out.printf("HashSet: "+hs);
+
+        HashSet<String> hst=new HashSet<>();
+        LinkedHashSet<String> lhst = new LinkedHashSet<>();
+
+        hst.add("apple");
+        hst.add("banana");
+        hst.add("Orange");
+
+        lhst.add("apple");
+        lhst.add("banana");
+        lhst.add("Orange");
+
+        System.out.println("\nHashSet: ");
+        for(String fruit: hst)
+            System.out.print("  "+fruit);
+
+        System.out.println("\nLinkedHashSet: ");
+        for(String fruit: lhst)
+            System.out.print("  "+fruit);
+
+    }
+
+    public static void main(String[] args) {
+        C1 c=new C1();
+        c.ArrayFun();
     }
 }
