@@ -1,0 +1,51 @@
+Day 1
+    -conditional Statements
+        -if-else
+        -switch
+    -loops
+        -while
+        -do-while
+        -for
+        -for each(Eg. loop2.java 
+        || for(int item:array))
+    -jump statements
+        -break
+            -labelled(Eg. search2d.java)
+            -non labelled(Eg. inputarr.java)
+        -continue(Skip)
+            -labelled
+            -non labelled(Eg. pat1.java)
+    -array basics
+    -return statements
+
+Day 2
+    -Hackerrank
+    -Inheritance
+        -Single
+        -Multilevel
+        -Multiple(Interface)
+    -Interfaces
+
+
+Day 3
+    -Polymorphism
+        -Compile Time (Early Binding) (Static Polymorphism)
+            -Method Overloading  
+            -Constructor Overloading
+        -Run Time (Dynamic Binding) (Dynamic Polymorphism)
+            -Method Overriding
+    -Abstraction
+        -Interface
+        -Abstract Method & Abstract Classes
+
+
+Day 4
+    -Interfaces
+        -methods without body
+            -normal method declarations
+        -methods with body
+            -default methods
+            -static methods
+    -type casting
+        -implicit (Automatic by compiler)
+        -explicit (Manual conversion by programmer)
