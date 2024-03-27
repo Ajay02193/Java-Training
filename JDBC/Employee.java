@@ -3,15 +3,17 @@ import java.util.Scanner;
 
 public class Employee {
     public static void main(String[] args) {
-        try (Scanner scn = new Scanner(System.in);
-             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/saitm", "root", "5269")) {
+        try {
+            Scanner scn = new Scanner(System.in);
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/saitm", "root", "5269");
             char ch;
             int choice;
             do {
                 System.out.println("1. Create Employee table");
                 System.out.println("2. Insert in Employee table");
                 System.out.println("3. Display Data");
-                System.out.println("4. Delete Table");
                 System.out.println("Enter from the above option to proceed: ");
                 choice = scn.nextInt();
 
@@ -24,9 +26,6 @@ public class Employee {
                         break;
                     case 3:
                         displayEmployee(c);
-                        break;
-                    case 4:
-                        deleteEmployeeTable(c);
                         break;
                     default:
                         System.out.println("Invalid choice");
@@ -65,9 +64,8 @@ public class Employee {
         }
     }
 
-    public static void insertEmployeeData(Connection c, Scanner scn) throws SQLException {
-//        System.out.println("Enter Employee ID:");
-//        int eid = scn.nextInt();
+    public static void insertEmployeeData(Connection c, Scanner scn) throws SQLException
+    {
         scn.nextLine();
         System.out.println("Enter Name:");
         String name = scn.nextLine();
@@ -76,8 +74,8 @@ public class Employee {
         System.out.println("Enter Salary:");
         int salary = scn.nextInt();
 
-        try (PreparedStatement ps = c.prepareStatement("insert into Employee (Name, Address, Salary) values ( ?, ?, ?)")) {
-//            ps.setInt(1, eid);
+        try (PreparedStatement ps = c.prepareStatement("insert into Employee (Name, Address, Salary) values ( ?, ?, ?)"))
+        {
             ps.setString(1, name);
             ps.setString(2, add);
             ps.setInt(3, salary);
@@ -96,30 +94,6 @@ public class Employee {
             while(rs.next()){
                 System.out.println("Employee_ID: "+rs.getInt("E_Id")+" | Name: "+rs.getString("Name")+" | Address: "+rs.getString("Address")+" | Salary: "+rs.getInt("Salary"));
             }
-        }
-    }
-
-
-    public static void deleteEmployeeTable(Connection c) throws SQLException {
-        try (PreparedStatement ps = c.prepareStatement("show tables");
-             ResultSet rs = ps.executeQuery()) {
-
-            boolean te = false;
-            while (rs.next()) {
-                if (rs.getString("Tables_in_saitm").equalsIgnoreCase("Employee")) {
-                    te = true;
-                    try (Statement stmt = c.createStatement()) {
-                        int i = stmt.executeUpdate("drop table Employee");
-                        if (i == 0)
-                            System.out.println("Successful Deletion");
-                        else
-                            System.out.println("Unsuccessful");
-                    }
-                }
-            }
-
-            if (!te)
-                System.out.println("Table doesn't exist");
         }
     }
 }

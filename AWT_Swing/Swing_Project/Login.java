@@ -87,6 +87,10 @@ public class Login extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(null,"Under Development");
             dispose();
         }
+        if(ae.getSource()==signup){
+            dispose();
+            new SignUp();
+        }
 
     }
 
