@@ -1,8 +1,12 @@
 package Swing_Project;
 
+import Student.StudentDBConn;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class Login extends JFrame implements ActionListener {
 
@@ -29,7 +33,7 @@ public class Login extends JFrame implements ActionListener {
         loginlbl.setForeground(Color.WHITE);
         add(loginlbl);
 
-        JLabel cardlbl=new JLabel("Card No: ");
+        JLabel cardlbl=new JLabel("User ID: ");
         cardlbl.setBounds(150,125,100,30);
         cardlbl.setFont(new Font("Comic Sans MS",Font.BOLD,18));
         cardlbl.setForeground(Color.WHITE);
@@ -40,7 +44,7 @@ public class Login extends JFrame implements ActionListener {
         cardtxt.setFont(new Font("Comic Sans MS",Font.PLAIN,18));
         add(cardtxt);
 
-        JLabel pinlbl = new JLabel("PIN: ");
+        JLabel pinlbl = new JLabel("Password: ");
         pinlbl.setBounds(150,165,100,30);
         pinlbl.setFont(new Font("Comic Sans MS",Font.BOLD,18));
         pinlbl.setForeground(Color.WHITE);
@@ -79,13 +83,27 @@ public class Login extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae){
+        if(ae.getSource()==signin){
+            try{
+                StudentDBConn sdb = new StudentDBConn();
+
+                PreparedStatement ps = sdb.c.prepareStatement("select * from login");
+                ResultSet rs = ps.executeQuery();
+                while(rs.next()){
+                    if(rs.getString("userid").equals(cardtxt.getText())&&rs.getString("password").equals(pintxt.getText())){
+                        JOptionPane.showMessageDialog(null, "Success");
+                    }
+                    else
+                        JOptionPane.showMessageDialog(null,"Invalid");
+                }
+
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null,"Invalid");
+            }
+        }
         if(ae.getSource()==clear){
             cardtxt.setText("");
             pintxt.setText("");
-        }
-        if(ae.getSource()==signin){
-            JOptionPane.showMessageDialog(null,"Under Development");
-            dispose();
         }
         if(ae.getSource()==signup){
             dispose();

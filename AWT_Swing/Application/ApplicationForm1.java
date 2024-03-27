@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -202,21 +203,40 @@ public class ApplicationForm1 extends JFrame implements ActionListener {
             String state=statetxt.getText();
             String pinCode=pinCodetxt.getText();
 
+            boolean proceed=false;
 
-            try{
+            if(name.isEmpty()||fname.isEmpty()){
+                JOptionPane.showMessageDialog(null,"Name & Father Name can't be empty");
+                proceed=false;
+            }
+            else
+                proceed=true;
 
-                Conn conn=new Conn();
+            if(proceed){
+                try{
 
-                String query="insert into student values('"+form+"','"+name+"','"+fname+"','"+dob+"','"+gen+"','"+email+"','"+mop+"','"+address+"','"+city+"','"+state+"','"+pinCode+"')";
+                    Conn conn=new Conn();
 
-                PreparedStatement ps= conn.c.prepareStatement(query);
-                ps.executeUpdate();
+                    String query="insert into student values('"+form+"','"+name+"','"+fname+"','"+dob+"','"+gen+"','"+email+"','"+mop+"','"+address+"','"+city+"','"+state+"','"+pinCode+"')";
 
-                JOptionPane.showMessageDialog(null,"Successful Insertion");
-                dispose();
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null,"Invalid input"+e);
-                e.printStackTrace();
+                    PreparedStatement ps= conn.c.prepareStatement(query);
+                    ps.executeUpdate();
+
+                    JOptionPane.showMessageDialog(null,"Successful Insertion");
+                    dispose();
+
+                    query="select * from student";
+
+                    ps=conn.c.prepareStatement(query);
+                    ResultSet rs=ps.executeQuery();
+
+                    while(rs.next()){
+                        System.out.println(rs.getString("formno")+rs.getString("name")+rs.getString("fname")+rs.getString("dob")+rs.getString("gender")+rs.getString("email")+rs.getString("mop"));
+                    }
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,"Invalid input"+e);
+                    e.printStackTrace();
+                }
             }
         }
     }
